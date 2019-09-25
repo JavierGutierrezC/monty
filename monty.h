@@ -36,4 +36,6 @@ typedef struct instruction_s
 } instruction_t;
 
 char **processl(char *line);
+void *_calloc(unsigned int nmemb, unsigned int size);
+int _strcmp(char *s1, char *s2);
 #endif
