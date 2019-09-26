@@ -14,6 +14,8 @@ int main(int ac, char **av)
 	char *line = NULL;
 	size_t n;
 	ssize_t leline;
+	stack_t **heaad;
+	unsigned int count = 1;
 
 	if (ac != 2)
 	{
@@ -28,6 +30,7 @@ int main(int ac, char **av)
 		exit(EXIT_FAILURE);
 	}
 	/* here we have to put condition if file is null*/
+	head = NULL;
 	while (1)
 	{
 		leline = getline(&line, &n, file);
@@ -38,7 +41,8 @@ int main(int ac, char **av)
 			fclose(file);
 			exit(EXIT_SUCCESS);
 		}
-		processline(line);
+		processline(line, &head, count);
+		count++;
 		printf("%s", line);
 	}
 	return (0);
