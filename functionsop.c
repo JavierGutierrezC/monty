@@ -3,29 +3,38 @@
  * pushop - function to push int in a stack
  * @head: Head of the list
  * @count: line of the monty file
- * @element: int to push
+ * @elements: int to push
+ * @line: line to free
+ * @file: file to free
  */
-void pushop(stack_t **head, unsigned int count, char *element)
+void pushop(stack_t **head, unsigned int count, char **elements, char *line,
+	    FILE *file)
 {
-	int a = 0;
-	int n;
+	int a = 0, n;
 	stack_t *new;
+	char *element;
 
+	element = elements[1];
 	while (element[a] != '\0')
 	{
 		if (element[a] == '-')
 			a = a + 1;
 		if (element[a] < '0' || element[a] > '9')
 		{
+			free(elements);
+			free(line);
+			fclose(file);
 			dprintf(2, "L%d: usage: push integer\n", count);
 			exit(EXIT_FAILURE); }
-		a++;
-	}
+		a++; }
 
 	n = atoi(element);
 	new = malloc(sizeof(stack_t));
 	if (new == NULL)
 	{
+		free(elements);
+		free(line);
+		fclose(file);
 		dprintf(2, "Error: malloc failed\n");
 		exit(EXIT_FAILURE); }
 	if (*head == NULL)
@@ -33,16 +42,14 @@ void pushop(stack_t **head, unsigned int count, char *element)
 		new->n = n;
 		new->prev = NULL;
 		new->next = NULL;
-		*head = new;
-	}
+		*head = new; }
 	else
 	{
 		new->n = n;
 		(*head)->prev = new;
 		new->prev = NULL;
 		new->next = *head;
-		*head = new;
-	}
+		*head = new; }
 }
 /**
  * pallop - function to push int in a stack

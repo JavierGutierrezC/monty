@@ -18,15 +18,14 @@ void processl(char **toks1, stack_t **head, unsigned int count,
 	if (_strcmp(toks1[0], "push") == 0)
 	{
 		if (toks1[1])
-			pushop(head, count, toks1[1]);
+			pushop(head, count, toks1, line, file);
 		else
 		{
 			free(toks1);
 			free(line);
 			fclose(file);
 			dprintf(2, "L%d: usage: push integer\n", count);
-			exit(EXIT_FAILURE);
-		}
+			exit(EXIT_FAILURE); }
 	}
 	else
 	{
@@ -34,6 +33,7 @@ void processl(char **toks1, stack_t **head, unsigned int count,
 		{
 			if (_strcmp(toks1[0], opc[count1].opcode) == 0)
 			{
+				/* free(toks1); */
 				opc[count1].f(head, count);
 				count1 = 6;
 				flag = 1;

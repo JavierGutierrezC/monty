@@ -34,13 +34,14 @@ typedef struct instruction_s
 	char *opcode;
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
-
+extern FILE *file;
 void processl(char **toks1, stack_t **head, unsigned int count, char *line,
 	      FILE *file);
 char **tokenizeline(char *line);
 void *_calloc(unsigned int nmemb, unsigned int size);
 int _strcmp(char *s1, char *s2);
-void pushop(stack_t **head, unsigned int count, char *element);
+void pushop(stack_t **head, unsigned int count, char **elements, char *line,
+              FILE *file);
 void pallop(stack_t **head, unsigned int count);
 void pintop(stack_t **head, unsigned int count);
 void nopop(stack_t **head, unsigned int count);
