@@ -1,7 +1,7 @@
 #include "monty.h"
 /**
  * print_dlistint - prints all the elemenets of a list
- * @h: pointer point to the list
+ * @head: pointer point to the list
  *
  *
  * Return: Number of nodes
