@@ -25,7 +25,7 @@ void divop(stack_t **head, unsigned int count, char *line, FILE *file)
 		{
 			addr = (*head)->n;
 			delete_dnodeint_at_index(head, 0);
-			addr = addr / (*head)->n;
+			addr = (*head)->n / addr;
 			(*head)->n = addr;
 		}
 		else
