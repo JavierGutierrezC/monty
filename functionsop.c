@@ -89,7 +89,7 @@ void popop(stack_t **head, unsigned int count, char *line, FILE *file)
 	else
 	{
 		free(line);
-		free(file);
+		fclose(file);
 		dprintf(2, "L%d: can't pop an empty stack\n", count);
 		exit(EXIT_FAILURE);
 	}
@@ -108,7 +108,7 @@ void pintop(stack_t **head, unsigned int count, char *line, FILE *file)
 	else
 	{
 		free(line);
-		free(file);
+		fclose(file);
 		dprintf(2, "L%d: can't pint an empty stack\n", count);
 		exit(EXIT_FAILURE);
 	}
@@ -127,7 +127,7 @@ void subop(stack_t **head, unsigned int count, char *line, FILE *file)
 	else
 	{
 		free(line);
-		free(file);
+		fclose(file);
 		dprintf(2, "L%d: can't sub, stack too short\n", count);
 		exit(EXIT_FAILURE);
 	}

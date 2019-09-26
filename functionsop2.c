@@ -46,7 +46,7 @@ void addop(stack_t **head, unsigned int count, char *line, FILE *file)
 		{
 			free(line);
 			fclose(file);
-			dprintf(2, "L%d: can't add stack too short", count);
+			dprintf(2, "L%d: can't add stack too short\n", count);
 			exit(EXIT_FAILURE);
 		}
 	}
@@ -54,7 +54,7 @@ void addop(stack_t **head, unsigned int count, char *line, FILE *file)
 	{
 		free(line);
 		fclose(file);
-		dprintf(2, "L%d: can't add stack too short", count);
+		dprintf(2, "L%d: can't add stack too short\n", count);
 		exit(EXIT_FAILURE);
 	}
 }
@@ -73,7 +73,7 @@ void swapop(stack_t **head, unsigned int count, char *line, FILE *file)
 	{
 		free(line);
 		fclose(file);
-		dprintf(2, "L%d: can't swap stack too short", count);
+		dprintf(2, "L%d: can't swap stack too short\n", count);
 		exit(EXIT_FAILURE);
 	}
 }
