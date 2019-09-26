@@ -1,12 +1,12 @@
 #include "monty.h"
 /**
- * nopop - function to push int in a stack
+ * divop - function to div int in a stack
  * @head: Head of the list
  * @count: line of the monty file
  * @line: line to free
  * @file: file to free
  */
-void nopop(stack_t **head, unsigned int count, char *line, FILE *file)
+void divop(stack_t **head, unsigned int count, char *line, FILE *file)
 {
 	(void) count;
 	(void) head;

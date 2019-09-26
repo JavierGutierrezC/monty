@@ -12,7 +12,7 @@ void processl(char **toks1, stack_t **head, unsigned int count,
 {
 	int flag = 0, count1 = 0;
 	instruction_t opc[] = {
-		{"pop", popop}, {"nop", nopop}, {"pall", pallop}, {"swap", swapop},
+		{"pop", popop}, {"div", divop}, {"pall", pallop}, {"swap", swapop},
 		{"sub", subop}, {"pint", pintop}, {"add", addop}};
 
 	if (_strcmp(toks1[0], "push") == 0)

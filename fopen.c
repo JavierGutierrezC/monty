@@ -41,7 +41,7 @@ int main(int ac, char **av)
 			exit(EXIT_SUCCESS);
 		}
 		strt = tokenizeline(line);
-		if (_strcmp(strt[0], "\n") != 0)
+		if (_strcmp(strt[0], "\n") != 0 && _strcmp(strt[0], "nop"))
 			processl(strt, &head, count, line, file);
 		else
 			free(strt);

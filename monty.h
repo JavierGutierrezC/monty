@@ -47,7 +47,7 @@ void pallop(stack_t **head, unsigned int count, char *line,
             FILE *file);
 void pintop(stack_t **head, unsigned int count, char *line,
 	    FILE *file);
-void nopop(stack_t **head, unsigned int count, char *line,
+void divop(stack_t **head, unsigned int count, char *line,
 	   FILE *file);
 void subop(stack_t **head, unsigned int count, char *line,
 	   FILE *file);
