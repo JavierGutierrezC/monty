@@ -32,7 +32,8 @@ typedef struct stack_s
 typedef struct instruction_s
 {
 	char *opcode;
-	void (*f)(stack_t **stack, unsigned int line_number);
+	void (*f)(stack_t **stack, unsigned int line_number, char *line,
+		  FILE *file);
 } instruction_t;
 extern FILE *file;
 void processl(char **toks1, stack_t **head, unsigned int count, char *line,
@@ -41,14 +42,21 @@ char **tokenizeline(char *line);
 void *_calloc(unsigned int nmemb, unsigned int size);
 int _strcmp(char *s1, char *s2);
 void pushop(stack_t **head, unsigned int count, char **elements, char *line,
-              FILE *file);
-void pallop(stack_t **head, unsigned int count);
-void pintop(stack_t **head, unsigned int count);
-void nopop(stack_t **head, unsigned int count);
-void subop(stack_t **head, unsigned int count);
-void popop(stack_t **head, unsigned int count);
-void swapop(stack_t **head, unsigned int count);
-void addop(stack_t **head, unsigned int count);
+	    FILE *file);
+void pallop(stack_t **head, unsigned int count, char *line,
+            FILE *file);
+void pintop(stack_t **head, unsigned int count, char *line,
+	    FILE *file);
+void nopop(stack_t **head, unsigned int count, char *line,
+	   FILE *file);
+void subop(stack_t **head, unsigned int count, char *line,
+	   FILE *file);
+void popop(stack_t **head, unsigned int count, char *line,
+	   FILE *file);
+void swapop(stack_t **head, unsigned int count, char *line,
+	    FILE *file);
+void addop(stack_t **head, unsigned int count, char *line,
+	   FILE *file);
 void free_dlistint(stack_t *head);
 int delete_dnodeint_at_index(stack_t **head, unsigned int index);
 size_t dlistint_len(stack_t *h);

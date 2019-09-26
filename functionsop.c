@@ -50,16 +50,20 @@ void pushop(stack_t **head, unsigned int count, char **elements, char *line,
 		new->prev = NULL;
 		new->next = *head;
 		*head = new; }
-}
+	free(elements); }
 /**
  * pallop - function to push int in a stack
  * @head: Head of the list
  * @count: line of the monty file
+ * @line: line to free
+ * @file: file to free
  */
-void pallop(stack_t **head, unsigned int count)
+void pallop(stack_t **head, unsigned int count, char *line, FILE *file)
 {
 	stack_t *temp;
 	(void) count;
+	(void) line;
+	(void) file;
 
 	if (*head != NULL)
 	{
@@ -75,14 +79,18 @@ void pallop(stack_t **head, unsigned int count)
  * popop - function to del element in a stack
  * @head: Head of the list
  * @count: line of the monty file
+ * @line: line to free
+ * @file: file to free
  */
-void popop(stack_t **head, unsigned int count)
+void popop(stack_t **head, unsigned int count, char *line, FILE *file)
 {
 	if (*head != NULL)
 		delete_dnodeint_at_index(head, 0);
 	else
 	{
-		dprintf(2, "L%d: can't pop an empty stack", count);
+		free(line);
+		free(file);
+		dprintf(2, "L%d: can't pop an empty stack\n", count);
 		exit(EXIT_FAILURE);
 	}
 }
@@ -90,14 +98,18 @@ void popop(stack_t **head, unsigned int count)
  * pintop - function to print top
  * @head: Head of the list
  * @count: line of the monty file
+ * @line: line to free
+ * @file: file to free
  */
-void pintop(stack_t **head, unsigned int count)
+void pintop(stack_t **head, unsigned int count, char *line, FILE *file)
 {
 	if (*head != NULL)
 		printf("%d\n", (*head)->n);
 	else
 	{
-		dprintf(2, "L%d: can't pint an empty stack", count);
+		free(line);
+		free(file);
+		dprintf(2, "L%d: can't pint an empty stack\n", count);
 		exit(EXIT_FAILURE);
 	}
 }
@@ -105,14 +117,18 @@ void pintop(stack_t **head, unsigned int count)
  * subop - function to substract first two elements in a stack
  * @head: Head of the list
  * @count: line of the monty file
+ * @line: line to free
+ * @file: file to free
  */
-void subop(stack_t **head, unsigned int count)
+void subop(stack_t **head, unsigned int count, char *line, FILE *file)
 {
 	if (*head != NULL)
 		*head = (*head)->next;
 	else
 	{
-		dprintf(2, "L%d: can't sub, stack too short", count);
+		free(line);
+		free(file);
+		dprintf(2, "L%d: can't sub, stack too short\n", count);
 		exit(EXIT_FAILURE);
 	}
 }

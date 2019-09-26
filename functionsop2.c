@@ -3,19 +3,24 @@
  * nopop - function to push int in a stack
  * @head: Head of the list
  * @count: line of the monty file
+ * @line: line to free
+ * @file: file to free
  */
-void nopop(stack_t **head, unsigned int count)
+void nopop(stack_t **head, unsigned int count, char *line, FILE *file)
 {
 	(void) count;
-	if (*head != NULL)
-		free_dlistint(*head);
+	(void) head;
+	(void) line;
+	(void) file;
 }
 /**
  * addop - function to push int in a stack
  * @head: Head of the list
  * @count: line of the monty file
+ * @line: line to free
+ * @file: file to free
  */
-void addop(stack_t **head, unsigned int count)
+void addop(stack_t **head, unsigned int count, char *line, FILE *file)
 {
 	int addr = 0;
 	stack_t *current;
@@ -39,12 +44,16 @@ void addop(stack_t **head, unsigned int count)
 		}
 		else
 		{
+			free(line);
+			fclose(file);
 			dprintf(2, "L%d: can't add stack too short", count);
 			exit(EXIT_FAILURE);
 		}
 	}
 	else
 	{
+		free(line);
+		fclose(file);
 		dprintf(2, "L%d: can't add stack too short", count);
 		exit(EXIT_FAILURE);
 	}
@@ -53,13 +62,17 @@ void addop(stack_t **head, unsigned int count)
  * swapop - function to push int in a stack
  * @head: Head of the list
  * @count: line of the monty file
+ * @line: line to free
+ * @file: file to free
  */
-void swapop(stack_t **head, unsigned int count)
+void swapop(stack_t **head, unsigned int count, char *line, FILE *file)
 {
 	if (*head != NULL)
 		free_dlistint(*head);
 	else
 	{
+		free(line);
+		fclose(file);
 		dprintf(2, "L%d: can't swap stack too short", count);
 		exit(EXIT_FAILURE);
 	}

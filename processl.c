@@ -33,8 +33,8 @@ void processl(char **toks1, stack_t **head, unsigned int count,
 		{
 			if (_strcmp(toks1[0], opc[count1].opcode) == 0)
 			{
-				/* free(toks1); */
-				opc[count1].f(head, count);
+				free(toks1);
+				opc[count1].f(head, count, line, file);
 				count1 = 6;
 				flag = 1;
 			}
@@ -48,5 +48,5 @@ void processl(char **toks1, stack_t **head, unsigned int count,
 			fclose(file);
 			exit(EXIT_FAILURE); }
 	}
-	free(toks1);
+	/*free(toks1);*/
 }
