@@ -74,8 +74,8 @@ void pallop(stack_t **head, unsigned int count)
  */
 void popop(stack_t **head, unsigned int count)
 {
-        if (*head != NULL)
-                delete_dnodeint_at_index(head, 0);
+	if (*head != NULL)
+		delete_dnodeint_at_index(head, 0);
 	else
 	{
 		dprintf(2, "L%d: can't pop an empty stack", count);
@@ -89,13 +89,13 @@ void popop(stack_t **head, unsigned int count)
  */
 void pintop(stack_t **head, unsigned int count)
 {
-        if (*head != NULL)
-                 printf("%d\n", (*head)->n);
+	if (*head != NULL)
+		printf("%d\n", (*head)->n);
 	else
-        {
-                dprintf(2, "L%d: can't pint an empty stack", count);
-                exit(EXIT_FAILURE);
-        }
+	{
+		dprintf(2, "L%d: can't pint an empty stack", count);
+		exit(EXIT_FAILURE);
+	}
 }
 /**
  * pop - function to push int in a stack
@@ -104,12 +104,11 @@ void pintop(stack_t **head, unsigned int count)
  */
 void subop(stack_t **head, unsigned int count)
 {
-        if (*head != NULL)
-                print_dlistint(*head);
+	if (*head != NULL)
+		print_dlistint(*head);
 	else
-        {
-                dprintf(2, "L%d: can't sub, stack too short", count);
-                exit(EXIT_FAILURE);
-        }
-
+	{
+		dprintf(2, "L%d: can't sub, stack too short", count);
+		exit(EXIT_FAILURE);
+	}
 }
