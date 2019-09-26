@@ -83,13 +83,13 @@ void addop(stack_t **head, unsigned int count, char *line, FILE *file)
 			exit(EXIT_FAILURE);
 		}
 	}
-	else
-	{
-		free(line);
-		fclose(file);
-		dprintf(2, "L%d: can't add, stack too short\n", count);
-		exit(EXIT_FAILURE);
-	}
+	/* else */
+	/* { */
+	/*free(line); */
+	/*fclose(file); */
+	/*dprintf(2, "L%d: can't add, stack too short\n", count); */
+	/*exit(EXIT_FAILURE); */
+	/* } */
 }
 /**
  * swapop - function to push int in a stack
