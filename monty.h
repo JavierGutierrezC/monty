@@ -44,7 +44,7 @@ int _strcmp(char *s1, char *s2);
 void pushop(stack_t **head, unsigned int count, char **elements, char *line,
 	    FILE *file);
 void pallop(stack_t **head, unsigned int count, char *line,
-            FILE *file);
+	    FILE *file);
 void pintop(stack_t **head, unsigned int count, char *line,
 	    FILE *file);
 void divop(stack_t **head, unsigned int count, char *line,
@@ -56,6 +56,8 @@ void popop(stack_t **head, unsigned int count, char *line,
 void swapop(stack_t **head, unsigned int count, char *line,
 	    FILE *file);
 void addop(stack_t **head, unsigned int count, char *line,
+	   FILE *file);
+void mulop(stack_t **head, unsigned int count, char *line,
 	   FILE *file);
 void free_dlistint(stack_t *head);
 int delete_dnodeint_at_index(stack_t **head, unsigned int index);
