@@ -8,7 +8,7 @@ void nopop(stack_t **head, unsigned int count)
 {
 	(void) count;
         if (*head != NULL)
-                print_dlistint(*head);
+                free_dlistint(*head);
 }
 /**
  * addop - function to push int in a stack
@@ -26,7 +26,6 @@ void addop(stack_t **head, unsigned int count)
 	        current = *head;
 		while (current != NULL)
 		{
-			/* printf("%d\n", h->n); */
 			n++;
 			current = current->next;
 		}
@@ -58,7 +57,7 @@ void addop(stack_t **head, unsigned int count)
 void swapop(stack_t **head, unsigned int count)
 {
         if (*head != NULL)
-                print_dlistint(*head);
+                free_dlistint(*head);
 	else
         {
                 dprintf(2, "L%d: can't swap stack too short", count);

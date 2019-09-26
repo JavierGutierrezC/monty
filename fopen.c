@@ -37,12 +37,12 @@ int main(int ac, char **av)
 		if (leline == EOF)
 		{
 			free(line);
-			printf("por aqui paseé EOF");
+			/* printf("por aqui paseé EOF"); */
 			free_dlistint(head);
 			fclose(file);
 			exit(EXIT_SUCCESS);
 		}
-		processl(line, &head, count);
+			processl(line, &head, count);
 		count++;
 		/* printf("%s", line); */
 	}

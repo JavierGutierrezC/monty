@@ -38,8 +38,6 @@ typedef struct instruction_s
 void processl(char *line, stack_t **head, unsigned int count);
 void *_calloc(unsigned int nmemb, unsigned int size);
 int _strcmp(char *s1, char *s2);
-size_t print_dlistint(const stack_t *head);
-stack_t *add_dnodeint(stack_t **head, const int n);
 void pushop(stack_t **head, unsigned int count, char *element);
 void pallop(stack_t **head, unsigned int count);
 void pintop(stack_t **head, unsigned int count);
@@ -50,4 +48,5 @@ void swapop(stack_t **head, unsigned int count);
 void addop(stack_t **head, unsigned int count);
 void free_dlistint(stack_t *head);
 int delete_dnodeint_at_index(stack_t **head, unsigned int index);
+size_t dlistint_len(stack_t *h);
 #endif

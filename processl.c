@@ -19,34 +19,37 @@ void processl(char *line, stack_t **head, unsigned int count)
 		toks1[count1] = strt;
 		strt = strtok(NULL, delimi); }
 	count1 = 0;
-	if (_strcmp(toks1[0], "push") == 0)
+	if (toks1[0] != NULL)
 	{
-		if (toks1[1])
-			pushop(head, count, toks1[1]);
+		if (_strcmp(toks1[0], "push") == 0)
+		{
+			if (toks1[1])
+				pushop(head, count, toks1[1]);
+			else
+			{
+				dprintf(2, "L%d: usage: push integer\n", count);
+				exit(EXIT_FAILURE);
+			}
+		}
 		else
 		{
-			dprintf(2, "L%d: usage: push integer\n", count);
-			exit(EXIT_FAILURE);
-		}
-	}
-	else
-	{
-		while (count1 < 7)
-		{
-			if (_strcmp(toks1[0], opc[count1].opcode) == 0)
+			while (count1 < 7)
 			{
-				opc[count1].f(head, count);
-				count1 = 6;
-				flag = 1;
+				if (_strcmp(toks1[0], opc[count1].opcode) == 0)
+				{
+					opc[count1].f(head, count);
+					count1 = 6;
+					flag = 1;
+				}
+				count1++;
 			}
-			count1++;
-		}
-		if (flag == 0)
-		{
-			dprintf(2, "L%d: unknown instruction %s\n", count, toks1[0]);
-			exit(EXIT_FAILURE);
-		}
+			if (flag == 0)
+			{
+				dprintf(2, "L%d: unknown instruction %s\n", count, toks1[0]);
+				exit(EXIT_FAILURE);
+			}
 		/*printf("por aqui pasé una");*/
+		}
 	}
 	free(toks1);
 }
