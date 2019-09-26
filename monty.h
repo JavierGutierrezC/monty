@@ -35,7 +35,8 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-void processl(char **toks1, stack_t **head, unsigned int count, char *line);
+void processl(char **toks1, stack_t **head, unsigned int count, char *line,
+	      FILE *file);
 char **tokenizeline(char *line);
 void *_calloc(unsigned int nmemb, unsigned int size);
 int _strcmp(char *s1, char *s2);

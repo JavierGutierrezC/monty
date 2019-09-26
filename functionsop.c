@@ -13,7 +13,9 @@ void pushop(stack_t **head, unsigned int count, char *element)
 
 	while (element[a] != '\0')
 	{
-		if (element[a] < '0' && element[a] > '9')
+		if (element[a] == '-')
+			a = a + 1;
+		if (element[a] < '0' || element[a] > '9')
 		{
 			dprintf(2, "L%d: usage: push integer\n", count);
 			exit(EXIT_FAILURE); }

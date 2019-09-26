@@ -5,8 +5,10 @@
  * @head: first item in Stack
  * @count: line of monty file
  * @line: line for free
+ * @file: object file for close
  */
-void processl(char **toks1, stack_t **head, unsigned int count, char *line)
+void processl(char **toks1, stack_t **head, unsigned int count,
+	      char *line, FILE *file)
 {
 	int flag = 0, count1 = 0;
 	instruction_t opc[] = {
@@ -21,6 +23,7 @@ void processl(char **toks1, stack_t **head, unsigned int count, char *line)
 		{
 			free(toks1);
 			free(line);
+			fclose(file);
 			dprintf(2, "L%d: usage: push integer\n", count);
 			exit(EXIT_FAILURE);
 		}
@@ -42,8 +45,8 @@ void processl(char **toks1, stack_t **head, unsigned int count, char *line)
 			dprintf(2, "L%d: unknown instruction %s\n", count, toks1[0]);
 			free(toks1);
 			free(line);
-			exit(EXIT_FAILURE);
-		}
+			fclose(file);
+			exit(EXIT_FAILURE); }
 	}
 	free(toks1);
 }

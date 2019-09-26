@@ -42,7 +42,7 @@ int main(int ac, char **av)
 		}
 		strt = tokenizeline(line);
 		if (_strcmp(strt[0], "\n") != 0)
-			processl(strt, &head, count, line);
+			processl(strt, &head, count, line, file);
 		else
 			free(strt);
 		count++;
