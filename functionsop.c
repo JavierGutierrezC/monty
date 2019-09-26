@@ -75,7 +75,7 @@ void pallop(stack_t **head, unsigned int count)
 void popop(stack_t **head, unsigned int count)
 {
         if (*head != NULL)
-                print_dlistint(*head);
+                delete_dnodeint_at_index(head, 0);
 	else
 	{
 		dprintf(2, "L%d: can't pop an empty stack", count);
@@ -83,14 +83,14 @@ void popop(stack_t **head, unsigned int count)
 	}
 }
 /**
- * pintop - function to push int in a stack
+ * pintop - function to print top
  * @head: Head of the list
  * @count: line of the monty file
  */
 void pintop(stack_t **head, unsigned int count)
 {
         if (*head != NULL)
-                print_dlistint(*head);
+                 printf("%d\n", (*head)->n);
 	else
         {
                 dprintf(2, "L%d: can't pint an empty stack", count);

@@ -48,5 +48,6 @@ void subop(stack_t **head, unsigned int count);
 void popop(stack_t **head, unsigned int count);
 void swapop(stack_t **head, unsigned int count);
 void addop(stack_t **head, unsigned int count);
-
+void free_dlistint(stack_t *head);
+int delete_dnodeint_at_index(stack_t **head, unsigned int index);
 #endif

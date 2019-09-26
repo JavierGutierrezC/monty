@@ -38,6 +38,7 @@ int main(int ac, char **av)
 		{
 			free(line);
 			printf("por aqui paseé EOF");
+			free_dlistint(head);
 			fclose(file);
 			exit(EXIT_SUCCESS);
 		}

@@ -6,24 +6,18 @@
  */
 void processl(char *line, stack_t **head, unsigned int count)
 {
-	char *strt = NULL, **toks1 = _calloc(1, 1024);
-	char *delimi = " \t\r\n\a";
+	char *strt = NULL, **toks1 = _calloc(1, 1024), *delimi = " \t\r\n\a";
 	int count1 = 0, flag = 0;
-
 	instruction_t opc[] = {
 		{"pop", popop}, {"nop", nopop}, {"pall", pallop},
-		{"swap", swapop}, {"b", subop},	{"pint", pintop},
-		{"add", addop}
-	};
+		{"swap", swapop}, {"sub", subop}, {"pint", pintop},
+		{"add", addop}};
 
 	strt = strtok(line, delimi);
 	for (count1 = 0; strt != NULL; count1++)
 	{
 		toks1[count1] = strt;
-		/*printf("%s\n",toks[count]);*/
-		strt = strtok(NULL, delimi);
-	}
-
+		strt = strtok(NULL, delimi); }
 	count1 = 0;
 	if (_strcmp(toks1[0], "push") == 0)
 	{
@@ -52,5 +46,7 @@ void processl(char *line, stack_t **head, unsigned int count)
 			dprintf(2, "L%d: unknown instruction %s\n", count, toks1[0]);
 			exit(EXIT_FAILURE);
 		}
+		/*printf("por aqui pasé una");*/
 	}
+	free(toks1);
 }
