@@ -109,7 +109,7 @@ void pintop(stack_t **head, unsigned int count, char *line, FILE *file)
 	{
 		free(line);
 		fclose(file);
-		dprintf(2, "L%d: can't pint an empty stack\n", count);
+		dprintf(2, "L%d: can't pint, stack empty\n", count);
 		exit(EXIT_FAILURE);
 	}
 }
