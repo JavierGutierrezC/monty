@@ -11,7 +11,7 @@
 int main(int ac, char **av)
 {
 	FILE *file;
-	char *line = NULL;
+	char *line = NULL, **strt;
 	size_t n;
 	ssize_t leline;
 	stack_t *head;
@@ -23,13 +23,11 @@ int main(int ac, char **av)
 		exit(EXIT_FAILURE);
 	}
 	file = fopen(av[1], "r");
-	/* here we have to put condition if file is null*/
 	if (file == NULL)
 	{
 		dprintf(2, "Error: Can't open file %s\n", av[1]);
 		exit(EXIT_FAILURE);
 	}
-	/* here we have to put condition if file is null*/
 	head = NULL;
 	while (1)
 	{
@@ -42,9 +40,12 @@ int main(int ac, char **av)
 			fclose(file);
 			exit(EXIT_SUCCESS);
 		}
-			processl(line, &head, count);
+		strt = tokenizeline(line);
+		if (_strcmp(strt[0], "\n") != 0)
+			processl(strt, &head, count);
+		else
+			free(strt);
 		count++;
-		/* printf("%s", line); */
 	}
 	return (0);
 }
