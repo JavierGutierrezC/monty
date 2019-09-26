@@ -4,7 +4,7 @@
  *
  *
  */
-char **processl(char *line, stack_t **head, unsigned int count)
+void processl(char *line, stack_t **head, unsigned int count)
 {
 	char *strt = NULL, **toks1 = _calloc(1024);
 	int n = 0;
@@ -26,9 +26,15 @@ char **processl(char *line, stack_t **head, unsigned int count)
 	}
 
 	count1 = 0;
-	if (_strcmp(toks1[0], "push") && toks1[1])
+	if (_strcmp(toks1[0], "push"))
 	{
-		pushop(&head, count, toks1[1])
+		if (toks[1])
+			pushop(&head, count, toks1[1]);
+		else
+		{
+			dprintf(2, "L%d: usage: push integer\n", count);
+			exit(EXIT_FAILURE);
+		}
 	}
 	else
 	{
