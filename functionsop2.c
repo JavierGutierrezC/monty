@@ -100,15 +100,44 @@ void addop(stack_t **head, unsigned int count, char *line, FILE *file)
  */
 void swapop(stack_t **head, unsigned int count, char *line, FILE *file)
 {
+	stack_t *current, *second;
+	int n = 0;
+
 	if (*head != NULL)
-		free_dlistint(*head);
+	{
+		current = *head;
+		while (current != NULL)
+		{
+			n++;
+			current = current->next;
+		}
+
+		if (n >= 2)
+		{
+			second = *head;
+			*head = (*head)->next;
+			second->next = (*head)->next;
+			(*head)->prev = NULL;
+			second->prev = *head;
+			(*head)->next = second;
+		}
+		else
+		{
+			free(*head);
+			free(line);
+			fclose(file);
+			dprintf(2, "L%d: can't swap, stack too short\n", count);
+			exit(EXIT_FAILURE);
+		}
+	}
 	else
 	{
 		free(line);
 		fclose(file);
-		dprintf(2, "L%d: can't swap stack too short\n", count);
+		dprintf(2, "L%d: can't swap, stack too short\n", count);
 		exit(EXIT_FAILURE);
 	}
+
 }
 /**
  * mulop - function to mul int in a stack
