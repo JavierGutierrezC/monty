@@ -35,10 +35,18 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-void processl(char *line, stack_t **head, unsigned int count);
+void processl(char *line, stack_t *head, unsigned int count);
 void *_calloc(unsigned int nmemb, unsigned int size);
 int _strcmp(char *s1, char *s2);
-size_t print_dlistint(const dlistint_t *h);
-dlistint_t *add_dnodeint(dlistint_t **head, const int n);
+size_t print_dlistint(const stack_t *head);
+stack_t *add_dnodeint(stack_t **head, const int n);
+void pushop(stack_t **head, unsigned int count, char *element);
+void pallop(stack_t **head, unsigned int count);
+void pintop(stack_t **head, unsigned int count);
+void nopop(stack_t **head, unsigned int count);
+void subop(stack_t **head, unsigned int count);
+void popop(stack_t **head, unsigned int count);
+void swapop(stack_t **head, unsigned int count);
+void addop(stack_t **head, unsigned int count);
 
 #endif

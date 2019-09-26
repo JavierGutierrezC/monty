@@ -14,7 +14,7 @@ int main(int ac, char **av)
 	char *line = NULL;
 	size_t n;
 	ssize_t leline;
-	stack_t **heaad;
+	stack_t *head;
 	unsigned int count = 1;
 
 	if (ac != 2)
@@ -37,11 +37,11 @@ int main(int ac, char **av)
 		if (leline == EOF)
 		{
 			free(line);
-			printf("por aqui paseé");
+			printf("por aqui paseé EOF");
 			fclose(file);
 			exit(EXIT_SUCCESS);
 		}
-		processline(line, &head, count);
+		processl(line, head, count);
 		count++;
 		printf("%s", line);
 	}

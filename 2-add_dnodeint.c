@@ -6,11 +6,11 @@
  * Return: Address of thenew element or NULL if it failed
  *
  */
-dlistint_t *add_dnodeint(dlistint_t **head, const int n)
+stack_t *add_dnodeint(stack_t **head, const int n)
 {
-	dlistint_t *newn;
+	stack_t *newn;
 
-	newn = malloc(sizeof(dlistint_t));
+	newn = malloc(sizeof(stack_t));
 
 	if (newn == NULL)
 		return (NULL);
