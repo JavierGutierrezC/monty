@@ -49,8 +49,8 @@ void pushop(stack_t **head, unsigned int count, char *element)
  */
 void pallop(stack_t **head, unsigned int count)
 {
-	(void) count;
 	stack_t *temp;
+	(void) count;
 
 	if (*head == NULL)
 		printf("es null");
