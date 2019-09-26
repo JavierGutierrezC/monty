@@ -61,13 +61,14 @@ void pallop(stack_t **head, unsigned int count)
 	stack_t *temp;
 	(void) count;
 
-	if (*head == NULL)
-		printf("es null");
-	temp = *head;
-	while (temp != NULL)
+	if (*head != NULL)
 	{
-		printf("%d\n", (temp)->n);
-		temp = (temp)->next;
+		temp = *head;
+		while (temp != NULL)
+		{
+			printf("%d\n", (temp)->n);
+			temp = (temp)->next;
+		}
 	}
 }
 /**
