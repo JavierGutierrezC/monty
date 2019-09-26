@@ -8,10 +8,42 @@
  */
 void divop(stack_t **head, unsigned int count, char *line, FILE *file)
 {
-	(void) count;
-	(void) head;
-	(void) line;
-	(void) file;
+	int addr = 0;
+	stack_t *current;
+	int n = 0;
+
+	if (*head != NULL)
+	{
+		current = *head;
+		while (current != NULL)
+		{
+			n++;
+			current = current->next;
+		}
+
+		if (n >= 2)
+		{
+			addr = (*head)->n;
+			delete_dnodeint_at_index(head, 0);
+			addr = addr / (*head)->n;
+			(*head)->n = addr;
+		}
+		else
+		{
+			free(*head);
+			free(line);
+			fclose(file);
+			dprintf(2, "L%d: can't div, stack too short\n", count);
+			exit(EXIT_FAILURE);
+		}
+	}
+	else
+	{
+		free(line);
+		fclose(file);
+		dprintf(2, "L%d: can't div, stack too short\n", count);
+		exit(EXIT_FAILURE);
+	}
 }
 /**
  * addop - function to push int in a stack
