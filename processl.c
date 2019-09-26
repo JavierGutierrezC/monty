@@ -1,8 +1,9 @@
 #include "monty.h"
 /**
  * processl - function to tokenize line and search opcode
- *
- *
+ * @toks1: tokenized elements
+ * @head: first item in Stack
+ * @count: line of monty file
  */
 void processl(char **toks1, stack_t **head, unsigned int count)
 {
