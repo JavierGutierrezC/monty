@@ -41,9 +41,9 @@ int main(int ac, char **av)
 			fclose(file);
 			exit(EXIT_SUCCESS);
 		}
-		processl(line, head, count);
+		processl(line, &head, count);
 		count++;
-		printf("%s", line);
+		/* printf("%s", line); */
 	}
 	return (0);
 }

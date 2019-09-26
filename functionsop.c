@@ -22,7 +22,27 @@ void pushop(stack_t **head, unsigned int count, char *element)
 
 	n = atoi(element);
 	/* add_dnodeint(head, n); */
-	
+	stack_t *new;
+
+	new = malloc(sizeof(stack_t));
+	if (new == NULL)
+		 dprintf(2, "L%d: usage: push integer\n", count);
+	if (*head == NULL)
+	{
+		new->n = n;
+		new->prev = NULL;
+		new->next = NULL;
+		*head = new;
+	}
+	else
+	{
+		new->n = n;
+		(*head)->prev = new;
+		new->prev = NULL;
+		new->next = *head;
+		*head = new;
+	}
+	/* return (newn); */
 }
 /**
  * pallop - function to push int in a stack
@@ -34,13 +54,15 @@ void pallop(stack_t **head, unsigned int count)
 	(void) count;
 	/*if (*head != NULL)*/
       /* size_t count = 0; */
+	stack_t *temp;
 	if (*head == NULL)
 		printf("es null");
+	temp = *head;
 
-      while (*head != NULL)
+      while (temp != NULL)
       {
-	      printf("%d\n", (*head)->n);
-	      *head = (*head)->next;
+	      printf("%d\n", (temp)->n);
+	      temp = (temp)->next;
 	      /* count++; */
       }
       /* return (count); */

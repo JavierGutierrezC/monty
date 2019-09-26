@@ -4,7 +4,7 @@
  *
  *
  */
-void processl(char *line, stack_t *head, unsigned int count)
+void processl(char *line, stack_t **head, unsigned int count)
 {
 	char *strt = NULL, **toks1 = _calloc(1, 1024);
 	char *delimi = " \t\r\n\a";
@@ -28,7 +28,7 @@ void processl(char *line, stack_t *head, unsigned int count)
 	if (_strcmp(toks1[0], "push") == 0)
 	{
 		if (toks1[1])
-			pushop(&head, count, toks1[1]);
+			pushop(head, count, toks1[1]);
 		else
 		{
 			dprintf(2, "L%d: usage: push integer\n", count);
@@ -41,7 +41,7 @@ void processl(char *line, stack_t *head, unsigned int count)
 		{
 			if (_strcmp(toks1[0], opc[count1].opcode) == 0)
 			{
-				opc[count1].f(&head, count);
+				opc[count1].f(head, count);
 				count1 = 6;
 				flag = 1;
 			}
