@@ -35,13 +35,13 @@ int main(int ac, char **av)
 		if (leline == EOF)
 		{
 			free(line);
-			/* printf("por aqui paseé EOF"); */
 			free_dlistint(head);
 			fclose(file);
 			exit(EXIT_SUCCESS);
 		}
 		strt = tokenizeline(line);
-		if (_strcmp(strt[0], "\n") != 0 && _strcmp(strt[0], "nop"))
+		if (_strcmp(strt[0], "\n") != 0 && _strcmp(strt[0], "nop") &&
+			strt[0][0] != '#')
 			processl(strt, &head, count, line, file);
 		else
 			free(strt);
