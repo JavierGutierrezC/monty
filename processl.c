@@ -21,12 +21,12 @@ void processl(char **toks1, stack_t **head, unsigned int count,
 			pushop(head, count, toks1, line, file);
 		else
 		{
+			free(*head);
 			free(toks1);
 			free(line);
 			fclose(file);
 			dprintf(2, "L%d: usage: push integer\n", count);
-			exit(EXIT_FAILURE); }
-	}
+			exit(EXIT_FAILURE); } }
 	else
 	{
 		while (count1 < 7)
@@ -36,8 +36,7 @@ void processl(char **toks1, stack_t **head, unsigned int count,
 				free(toks1);
 				opc[count1].f(head, count, line, file);
 				count1 = 6;
-				flag = 1;
-			}
+				flag = 1; }
 			count1++;
 		}
 		if (flag == 0)
