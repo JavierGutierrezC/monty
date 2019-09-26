@@ -122,8 +122,35 @@ void pintop(stack_t **head, unsigned int count, char *line, FILE *file)
  */
 void subop(stack_t **head, unsigned int count, char *line, FILE *file)
 {
+	int addr = 0;
+	stack_t *current;
+	int n = 0;
+
 	if (*head != NULL)
-		*head = (*head)->next;
+	{
+		current = *head;
+		while (current != NULL)
+		{
+			n++;
+			current = current->next;
+		}
+
+		if (n >= 2)
+		{
+			addr = (*head)->n;
+			delete_dnodeint_at_index(head, 0);
+			addr = (*head)->n - addr;
+			(*head)->n = addr;
+		}
+		else
+		{
+			free(*head);
+			free(line);
+			fclose(file);
+			dprintf(2, "L%d: can't sub, stack too short\n", count);
+			exit(EXIT_FAILURE);
+		}
+	}
 	else
 	{
 		free(line);
