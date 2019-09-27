@@ -13,15 +13,15 @@
 * Task 5: nop - Implement the nop opcode.
 
 ## Advanced Tasks
-* Task 6: Sub - Implement the sub opcode
-* Task 7:
-* Task 8:
-* Task 9:
-* Task 10:
-* Task 11:
+* Task 6: Sub - Implement the sub opcode.
+* Task 7: Div - Implement the div opcode.
+* Task 8: Mul - Implement the mul opcode.
+* Task 9: Mod - Implement the mod opcode.
+* Task 10: Comments - Treat the # character as a comment.
+* Task 11: Pchar - Implement the pchar opcode.
 
-## File Descrition
-* **README.md:** Contains information describing the task given by HOLBERTON SCHOOL, to it's student to develop the printf.
+## Compilation & Output
+* **$ gcc -Wall -Werror -Wextra -pedantic *.c -o monty**
 
 * **man\_3_printf:** Manual page of the printf function with it's requirements.
 
@@ -43,6 +43,6 @@
 
 ## Authors
 
-Daniel Baquero
+Paulo Morillo
 
 Javier Gutierrez
