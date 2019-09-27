@@ -11,7 +11,7 @@ void pcharop(stack_t **head, unsigned int count, char *line, FILE *file)
 	if (*head != NULL)
 	{
 		if ((*head)->n >= 0 && (*head)->n < 128)
-		    printf("%c\n", (*head)->n);
+			printf("%c\n", (*head)->n);
 		else
 		{
 			free(line);
