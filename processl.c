@@ -13,7 +13,8 @@ void processl(char **toks1, stack_t **head, unsigned int count,
 	int flag = 0, count1 = 0;
 	instruction_t opc[] = {
 		{"pop", popop}, {"div", divop}, {"pall", pallop}, {"swap", swapop},
-		{"sub", subop}, {"pint", pintop}, {"add", addop}, {"mul", mulop} };
+		{"sub", subop}, {"pint", pintop}, {"add", addop}, {"mul", mulop},
+		{"pchar", pcharop}, {"mod", modop} };
 
 	if (_strcmp(toks1[0], "push") == 0)
 	{
@@ -29,16 +30,15 @@ void processl(char **toks1, stack_t **head, unsigned int count,
 			exit(EXIT_FAILURE); } }
 	else
 	{
-		while (count1 < 7)
+		while (count1 < 10)
 		{
 			if (_strcmp(toks1[0], opc[count1].opcode) == 0)
 			{
 				free(toks1);
 				opc[count1].f(head, count, line, file);
-				count1 = 6;
+				count1 = 9;
 				flag = 1; }
-			count1++;
-		}
+			count1++; }
 		if (flag == 0)
 		{
 			dprintf(2, "L%d: unknown instruction %s\n", count, toks1[0]);

@@ -59,6 +59,11 @@ void addop(stack_t **head, unsigned int count, char *line,
 	   FILE *file);
 void mulop(stack_t **head, unsigned int count, char *line,
 	   FILE *file);
+void modop(stack_t **head, unsigned int count, char *line,
+	   FILE *file);
+void pcharop(stack_t **head, unsigned int count, char *line,
+	     FILE *file);
+
 void free_dlistint(stack_t *head);
 int delete_dnodeint_at_index(stack_t **head, unsigned int index);
 size_t dlistint_len(stack_t *h);
