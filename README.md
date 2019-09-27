@@ -10,7 +10,7 @@
 * Task 2: Pop - Implement the pop opcode.
 * Task 3: Swap - Implement the swap opcode.
 * Task 4: Add - Implement the add opcode.
-* Task 5: nop - Implement the nop opcode.
+* Task 5: nop - Implement the nop opcode..
 
 ## Advanced Tasks
 * Task 6: Sub - Implement the sub opcode.
