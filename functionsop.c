@@ -4,8 +4,8 @@
  * @head: Head of the list
  * @count: line of the monty file
  * @elements: int to push
- * @line: line to free
- * @file: file to free
+ * @line: line that is going to freed
+ * @file: file that is going to be freed
  */
 void pushop(stack_t **head, unsigned int count, char **elements, char *line,
 	    FILE *file)
